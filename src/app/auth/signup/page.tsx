@@ -1,3 +1,4 @@
+
 import { SignupForm } from "@/components/auth/signup-form";
 import type { Metadata } from 'next';
 
@@ -15,6 +16,9 @@ export default function SignupPage() {
         Enter your details below to get started.
       </p>
       <SignupForm />
+      <p className="mt-4 px-8 text-center text-xs text-muted-foreground">
+        <strong>Demo:</strong> You can use any email address and matching passwords to sign up.
+      </p>
     </>
   );
 }

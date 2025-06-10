@@ -1,3 +1,4 @@
+
 import { LoginForm } from "@/components/auth/login-form";
 import type { Metadata } from 'next';
 
@@ -15,6 +16,9 @@ export default function LoginPage() {
         Enter your credentials to access your account.
       </p>
       <LoginForm />
+      <p className="mt-4 px-8 text-center text-xs text-muted-foreground">
+        <strong>Demo:</strong> Use email <code className="font-semibold text-foreground">user@example.com</code> and password <code className="font-semibold text-foreground">password123</code> to log in.
+      </p>
     </>
   );
 }
