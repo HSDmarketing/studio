@@ -65,7 +65,7 @@ export function SidebarNav() {
   };
 
   const renderNavItem = (item: NavItem, isSubItem = false) => {
-    const isActive = pathname === item.href || (item.children && item.children.some(child => pathname.startsWith(child.href)));
+    const isActive = pathname === item.href || pathname.startsWith(item.href + '/') || (item.children && item.children.some(child => pathname.startsWith(child.href)));
     const Comp = isSubItem ? SidebarMenuSubButton : SidebarMenuButton;
 
     if (item.children) {
@@ -88,9 +88,11 @@ export function SidebarNav() {
               {item.children.map(child => (
                 <SidebarMenuSubItem key={child.href}>
                    <Link href={child.href}>
-                    <SidebarMenuSubButton isActive={pathname === child.href} asChild={isSubItem}>
-                        <child.icon className="mr-2 h-4 w-4" />
-                        {child.label}
+                    <SidebarMenuSubButton isActive={pathname === child.href} asChild={true}>
+                        <div className="flex items-center gap-2">
+                          <child.icon className="mr-2 h-4 w-4" />
+                          <span>{child.label}</span>
+                        </div>
                     </SidebarMenuSubButton>
                   </Link>
                 </SidebarMenuSubItem>
@@ -104,8 +106,7 @@ export function SidebarNav() {
     return (
       <SidebarMenuItem key={item.label}>
         <Link href={item.href}>
-          <Comp isActive={isActive} tooltip={item.label} asChild={!isSubItem}>
-            {/* Wrap icon and span in a single div when asChild is true */}
+          <Comp isActive={isActive} tooltip={item.label} asChild={true}>
             <div className="flex items-center gap-2">
               <item.icon />
               <span>{item.label}</span>
@@ -143,7 +144,9 @@ export function SidebarNav() {
                 <DropdownMenuItem asChild>
                   <Link href="/settings/profile">Profile</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem>Billing</DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                    <Link href="/settings/billing">Billing</Link>
+                </DropdownMenuItem>
                 <DropdownMenuItem>Team</DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
@@ -161,4 +164,3 @@ export function SidebarNav() {
     </>
   );
 }
-
