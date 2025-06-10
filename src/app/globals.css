@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%; /* Default Light mode background - keeping it light */
+    --background: 210 40% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -13,7 +13,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 291.4 63.9% 41.8%; /* Vibrant Purple */
+    --primary: 217 89% 61%; /* Google Blue */
     --primary-foreground: 0 0% 98%; /* White */
 
     --secondary: 210 40% 96.1%;
@@ -22,36 +22,35 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 187.3 100% 41.6%; /* Teal */
+    --accent: 151 83% 34%; /* Google Green */
     --accent-foreground: 0 0% 98%; /* White */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 5 69% 53%; /* Google Red */
+    --destructive-foreground: 0 0% 98%; /* White */
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 291.4 63.9% 41.8%; /* Ring color to match primary */
+    --ring: 217 89% 61%; /* Google Blue for focus rings */
 
     --radius: 0.5rem;
 
-    /* Custom app background, if different from components */
     --app-background: 0 0% 94.1%; /* Light Gray for overall app background */
 
-    --chart-1: 291.4 63.9% 41.8%; /* Primary */
-    --chart-2: 187.3 100% 41.6%; /* Accent */
-    --chart-3: 210 40% 56.1%; /* Muted Blue/Gray */
-    --chart-4: 30 80% 55%;
-    --chart-5: 160 60% 45%;
+    --chart-1: 217 89% 61%; /* Google Blue */
+    --chart-2: 151 83% 34%; /* Google Green */
+    --chart-3: 43 90% 50%;  /* Google Yellow */
+    --chart-4: 5 69% 53%;   /* Google Red */
+    --chart-5: 217 89% 75%; /* Lighter Google Blue */
 
-    /* Sidebar specific theme */
+    /* Sidebar specific theme (sidebar is dark in light app theme) */
     --sidebar-background: 222.2 84% 4.9%; /* Dark for sidebar */
     --sidebar-foreground: 210 40% 98%; /* Light text on dark sidebar */
-    --sidebar-primary: 291.4 63.9% 41.8%; /* Primary for active/hover items */
+    --sidebar-primary: 217 89% 61%; /* Google Blue (matching app primary for consistency) */
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 210 40% 15%; /* Darker accent for sidebar items */
-    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-accent: 217 89% 55%; /* Slightly darker/muted Google Blue for hover/active on dark sidebar */
+    --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 210 40% 15%;
-    --sidebar-ring: 291.4 63.9% 41.8%;
+    --sidebar-ring: 217 89% 61%; /* Google Blue */
   }
 
   .dark {
@@ -64,7 +63,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 291.4 63.9% 51.8%; /* Slightly lighter purple for dark mode */
+    --primary: 217 89% 68%; /* Lighter Google Blue for dark mode */
     --primary-foreground: 0 0% 98%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -73,28 +72,28 @@
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 187.3 100% 51.6%; /* Slightly lighter teal for dark mode */
+    --accent: 151 83% 42%; /* Lighter Google Green for dark mode */
     --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 5 69% 60%; /* Lighter Google Red for dark mode */
     --destructive-foreground: 0 0% 98%;
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 291.4 63.9% 51.8%;
+    --ring: 217 89% 68%; /* Lighter Google Blue for dark mode rings */
 
     /* Custom app background for dark mode */
     --app-background: 220 20% 10%; /* Dark Gray for overall app background in dark mode */
 
-    /* Sidebar specific theme for dark mode */
+    /* Sidebar specific theme for dark mode (sidebar remains dark) */
     --sidebar-background: 222.2 84% 4.9%; /* Keeping sidebar dark */
     --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 291.4 63.9% 51.8%;
+    --sidebar-primary: 217 89% 68%; /* Lighter Google Blue for active/hover items */
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 210 40% 15%;
-    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-accent: 217 89% 60%;  /* Lighter Google Blue for hover/active on dark sidebar */
+    --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 210 40% 15%;
-    --sidebar-ring: 291.4 63.9% 51.8%;
+    --sidebar-ring: 217 89% 68%; /* Lighter Google Blue */
   }
 }
 
@@ -104,8 +103,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    /* Apply app-background to body or a main wrapper if needed */
-    /* For now, let's assume components use card/background, and overall page might be app-background */
   }
 }
 
