@@ -1,15 +1,23 @@
 
+"use client";
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Bot, LogIn, UserPlus, Zap } from 'lucide-react';
+import { Bot, LogIn, UserPlus } from 'lucide-react';
 import type { Metadata } from 'next';
+import { useState, useEffect } from 'react';
 
-export const metadata: Metadata = {
-  title: 'RepliGo - Automate Your Social Media Effortlessly',
-  description: 'The smart way to manage comments, messages, and posts. Save time, engage your audience, and grow your brand with RepliGo.',
-};
+// Metadata can be defined statically if not dependent on client-side data
+// export const metadata: Metadata = { ... }; 
+// However, since this is a "use client" component, metadata might be better set in a parent layout or via Head component if dynamic
 
 export default function LandingPage() {
+  const [currentYear, setCurrentYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-background via-app-background to-secondary/30 p-6 text-center selection:bg-primary/20 selection:text-primary">
       <div className="max-w-3xl w-full">
@@ -43,7 +51,7 @@ export default function LandingPage() {
       </div>
       
       <footer className="absolute bottom-0 left-0 right-0 p-6 text-center text-xs text-muted-foreground">
-        &copy; {new Date().getFullYear()} RepliGo. All rights reserved.
+        {currentYear ? `© ${currentYear} RepliGo. All rights reserved.` : 'Loading...'}
       </footer>
     </div>
   );

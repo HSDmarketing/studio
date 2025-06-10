@@ -1,6 +1,7 @@
+
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AutomationItem, type Automation } from "@/components/automations/automation-item";
 import { AutomationForm } from "@/components/automations/automation-form";
 import { Button } from "@/components/ui/button";
@@ -19,18 +20,20 @@ const demoAccounts: SocialAccountChoice[] = [
   { id: "fb1", platform: "Facebook", name: "My Startup Page FB" },
 ];
 
-
-const initialAutomations: Automation[] = [
-  { id: "auto1", name: "Welcome New Instagram Followers", accountId: "ig1", accountName: "My Awesome Biz IG", platform: "Instagram", trigger: { type: "new_follower_dm" }, action: { type: "send_dm", responseText: "Hey {{username}}! Thanks for following! Check out our latest offers." }, isActive: true, lastTriggered: new Date(Date.now() - 2 * 60 * 60 * 1000), triggerCount: 15 },
-  { id: "auto2", name: "Reply to Price Inquiries (FB)", accountId: "fb1", accountName: "My Startup Page FB", platform: "Facebook", trigger: { type: "comment_keyword", keywords: ["price", "cost", "how much"] }, action: { type: "reply_comment", responseText: "Thanks for asking, {{username}}! We've sent you a DM with pricing details." }, isActive: true, triggerCount: 5, lastTriggered: new Date(Date.now() - 5 * 60 * 60 * 1000) },
-  { id: "auto3", name: "Support Keyword DM (IG)", accountId: "ig1", accountName: "My Awesome Biz IG", platform: "Instagram", trigger: { type: "dm_keyword", keywords: ["help", "support", "issue"] }, action: { type: "send_dm", responseText: "Hi {{username}}, sorry you're having trouble. Our support team will get back to you shortly." }, isActive: false, triggerCount: 2 },
-];
-
 export default function AutomationsPage() {
-  const [automations, setAutomations] = useState<Automation[]>(initialAutomations);
+  const [automations, setAutomations] = useState<Automation[]>([]);
   const [showForm, setShowForm] = useState(false);
   const [editingAutomation, setEditingAutomation] = useState<Automation | undefined>(undefined);
   const { toast } = useToast();
+
+  useEffect(() => {
+    const initialAutomationsData: Automation[] = [
+      { id: "auto1", name: "Welcome New Instagram Followers", accountId: "ig1", accountName: "My Awesome Biz IG", platform: "Instagram", trigger: { type: "new_follower_dm" }, action: { type: "send_dm", responseText: "Hey {{username}}! Thanks for following! Check out our latest offers." }, isActive: true, lastTriggered: new Date(Date.now() - 2 * 60 * 60 * 1000), triggerCount: 15 },
+      { id: "auto2", name: "Reply to Price Inquiries (FB)", accountId: "fb1", accountName: "My Startup Page FB", platform: "Facebook", trigger: { type: "comment_keyword", keywords: ["price", "cost", "how much"] }, action: { type: "reply_comment", responseText: "Thanks for asking, {{username}}! We've sent you a DM with pricing details." }, isActive: true, triggerCount: 5, lastTriggered: new Date(Date.now() - 5 * 60 * 60 * 1000) },
+      { id: "auto3", name: "Support Keyword DM (IG)", accountId: "ig1", accountName: "My Awesome Biz IG", platform: "Instagram", trigger: { type: "dm_keyword", keywords: ["help", "support", "issue"] }, action: { type: "send_dm", responseText: "Hi {{username}}, sorry you're having trouble. Our support team will get back to you shortly." }, isActive: false, triggerCount: 2 },
+    ];
+    setAutomations(initialAutomationsData);
+  }, []);
 
   const handleToggleActive = (automationId: string, isActive: boolean) => {
     setAutomations(prev =>
@@ -107,8 +110,12 @@ export default function AutomationsPage() {
           </div>
         </CardHeader>
         <CardContent>
-          {automations.length === 0 ? (
+          {automations.length === 0 && !showForm ? ( // Added !showForm condition for loading state
             <p className="py-10 text-center text-muted-foreground">
+              Loading automations...
+            </p>
+          ) : automations.length === 0 ? (
+             <p className="py-10 text-center text-muted-foreground">
               No automations configured yet. Click &quot;Create New Automation&quot; to start.
             </p>
           ) : (
