@@ -1,10 +1,11 @@
+
 "use client";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, CreditCard, Download, PlusCircle } from "lucide-react";
+import { CheckCircle, CreditCard, Download, PlusCircle, Zap } from "lucide-react"; // Added Zap for trial
 import { useToast } from "@/hooks/use-toast";
 
 interface Plan {
@@ -12,12 +13,53 @@ interface Plan {
   price: string;
   features: string[];
   isCurrent?: boolean;
+  isTrial?: boolean;
 }
 
 const plans: Plan[] = [
-  { name: "Starter", price: "$19/mo", features: ["1 Social Account", "Basic Automations", "500 Scheduled Posts/mo", "Community Support"], isCurrent: true },
-  { name: "Pro", price: "$49/mo", features: ["5 Social Accounts", "Advanced Automations", "Unlimited Posts", "Priority Support", "AI Analytics"] },
-  { name: "Business", price: "$99/mo", features: ["Unlimited Accounts", "All Pro Features", "Team Collaboration", "Dedicated Account Manager"] },
+  { 
+    name: "Free Trial", 
+    price: "Free for 30 days", 
+    features: [
+      "1 Social Account", 
+      "Basic Automations", 
+      "100 Scheduled Posts/mo", 
+      "Community Support"
+    ],
+    isTrial: true,
+  },
+  { 
+    name: "Starter", 
+    price: "$4/mo", 
+    features: [
+      "1 Social Account", 
+      "Basic Automations", 
+      "500 Scheduled Posts/mo", 
+      "Community Support"
+    ], 
+    isCurrent: true 
+  },
+  { 
+    name: "Pro", 
+    price: "$9/mo", 
+    features: [
+      "5 Social Accounts", 
+      "Advanced Automations", 
+      "Unlimited Posts", 
+      "Priority Support", 
+      "AI Analytics"
+    ] 
+  },
+  { 
+    name: "Business", 
+    price: "$49/mo", 
+    features: [
+      "Unlimited Accounts", 
+      "All Pro Features", 
+      "Team Collaboration", 
+      "Dedicated Account Manager"
+    ] 
+  },
 ];
 
 const paymentMethods = [
@@ -25,27 +67,28 @@ const paymentMethods = [
 ];
 
 const invoices = [
-    { id: "inv1", date: "2024-06-01", amount: "$19.00", status: "Paid", pdfUrl: "#" },
-    { id: "inv2", date: "2024-05-01", amount: "$19.00", status: "Paid", pdfUrl: "#" },
+    { id: "inv1", date: "2024-06-01", amount: "$19.00", status: "Paid", pdfUrl: "#" }, // Kept old price for history
+    { id: "inv2", date: "2024-05-01", amount: "$19.00", status: "Paid", pdfUrl: "#" }, // Kept old price for history
 ];
 
 export default function BillingSettingsPage() {
   const { toast } = useToast();
 
   return (
-    <div className="space-y-8 max-w-4xl mx-auto">
+    <div className="space-y-8 max-w-5xl mx-auto"> {/* Increased max-width for 4 cards */}
       <Card className="shadow-xl">
         <CardHeader>
           <CardTitle className="font-headline text-2xl">Subscription Plan</CardTitle>
           <CardDescription>Manage your RepliGo subscription and billing details.</CardDescription>
         </CardHeader>
-        <CardContent className="grid gap-6 md:grid-cols-3">
+        <CardContent className="grid gap-6 md:grid-cols-2 lg:grid-cols-4"> {/* Adjusted grid for 4 cards */}
           {plans.map(plan => (
-            <Card key={plan.name} className={plan.isCurrent ? "border-primary ring-2 ring-primary shadow-lg" : "shadow-md"}>
+            <Card key={plan.name} className={plan.isCurrent ? "border-primary ring-2 ring-primary shadow-lg" : (plan.isTrial ? "border-accent ring-2 ring-accent shadow-lg" : "shadow-md")}>
               <CardHeader>
                 <CardTitle className="flex justify-between items-center">
                   {plan.name}
                   {plan.isCurrent && <Badge className="bg-primary text-primary-foreground">Current Plan</Badge>}
+                  {plan.isTrial && <Badge variant="outline" className="border-accent text-accent"><Zap className="mr-1 h-3 w-3" />Trial</Badge>}
                 </CardTitle>
                 <CardDescription className="text-3xl font-bold text-foreground">{plan.price}</CardDescription>
               </CardHeader>
@@ -60,8 +103,13 @@ export default function BillingSettingsPage() {
                 </ul>
               </CardContent>
               <CardFooter>
-                <Button className="w-full" variant={plan.isCurrent ? "outline" : "default"} disabled={plan.isCurrent} onClick={() => toast({title: "Plan Change (Demo)", description: `Selected ${plan.name} plan.`})}>
-                  {plan.isCurrent ? "Your Current Plan" : "Choose Plan"}
+                <Button 
+                  className="w-full" 
+                  variant={plan.isCurrent ? "outline" : (plan.isTrial ? "default" : "default")} 
+                  disabled={plan.isCurrent} 
+                  onClick={() => toast({title: "Plan Change (Demo)", description: `Selected ${plan.name} plan.`})}
+                >
+                  {plan.isCurrent ? "Your Current Plan" : (plan.isTrial ? "Start Free Trial" : "Choose Plan")}
                 </Button>
               </CardFooter>
             </Card>
