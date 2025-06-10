@@ -1,3 +1,4 @@
+
 import type { SVGProps } from 'react';
 
 const LogoIcon = (props: SVGProps<SVGSVGElement>) => (
@@ -9,10 +10,10 @@ const LogoIcon = (props: SVGProps<SVGSVGElement>) => (
     xmlns="http://www.w3.org/2000/svg"
     {...props} // className for sizing will be passed here
   >
-    <rect width="48" height="48" rx="5" fill="#4285F4"/> {/* Blue */}
-    <rect x="52" width="48" height="48" rx="5" fill="#DB4437"/> {/* Red */}
-    <rect y="52" width="48" height="48" rx="5" fill="#F4B400"/> {/* Yellow */}
-    <rect x="52" y="52" width="48" height="48" rx="5" fill="#0F9D58"/> {/* Green */}
+    <rect width="48" height="48" rx="5" fill="hsl(var(--primary))"/> {/* Blue */}
+    <rect x="52" width="48" height="48" rx="5" fill="hsl(var(--destructive))"/> {/* Red */}
+    <rect y="52" width="48" height="48" rx="5" fill="hsl(var(--chart-3))"/> {/* Yellow */}
+    <rect x="52" y="52" width="48" height="48" rx="5" fill="hsl(var(--accent))"/> {/* Green */}
   </svg>
 );
 
@@ -30,9 +31,17 @@ export function Logo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
   }
 
   return (
-    <div className="flex items-center gap-2"> {/* text-primary removed to let logo colors show */}
+    <div className="flex items-center gap-2">
       <LogoIcon className={sizeClasses[size]} />
-      <span className={`font-headline font-semibold ${textSizeClasses[size]} text-primary`}>RepliGo</span> {/* Text color remains primary */}
+      <div className={`font-headline font-semibold ${textSizeClasses[size]}`}>
+        <span className="text-primary">R</span>
+        <span className="text-destructive">e</span>
+        <span className="text-chart-3">p</span>
+        <span className="text-accent">l</span>
+        <span className="text-primary">i</span>
+        <span className="text-destructive">G</span>
+        <span className="text-chart-3">o</span>
+      </div>
     </div>
   );
 }
