@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -86,7 +87,7 @@ export function SidebarNav() {
             <SidebarMenuSub>
               {item.children.map(child => (
                 <SidebarMenuSubItem key={child.href}>
-                   <Link href={child.href} passHref legacyBehavior>
+                   <Link href={child.href}>
                     <SidebarMenuSubButton isActive={pathname === child.href} asChild={!isSubItem}>
                         <child.icon className="mr-2 h-4 w-4" />
                         {child.label}
@@ -102,7 +103,7 @@ export function SidebarNav() {
 
     return (
       <SidebarMenuItem key={item.label}>
-        <Link href={item.href} passHref legacyBehavior>
+        <Link href={item.href}>
           <Comp isActive={isActive} tooltip={item.label} asChild={!isSubItem}>
             <item.icon />
             <span>{item.label}</span>
