@@ -88,7 +88,7 @@ export function SidebarNav() {
               {item.children.map(child => (
                 <SidebarMenuSubItem key={child.href}>
                    <Link href={child.href}>
-                    <SidebarMenuSubButton isActive={pathname === child.href} asChild={!isSubItem}>
+                    <SidebarMenuSubButton isActive={pathname === child.href} asChild={isSubItem}>
                         <child.icon className="mr-2 h-4 w-4" />
                         {child.label}
                     </SidebarMenuSubButton>
@@ -105,8 +105,11 @@ export function SidebarNav() {
       <SidebarMenuItem key={item.label}>
         <Link href={item.href}>
           <Comp isActive={isActive} tooltip={item.label} asChild={!isSubItem}>
-            <item.icon />
-            <span>{item.label}</span>
+            {/* Wrap icon and span in a single div when asChild is true */}
+            <div className="flex items-center gap-2">
+              <item.icon />
+              <span>{item.label}</span>
+            </div>
           </Comp>
         </Link>
       </SidebarMenuItem>
@@ -158,3 +161,4 @@ export function SidebarNav() {
     </>
   );
 }
+
