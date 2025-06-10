@@ -1,6 +1,7 @@
+
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as z from "zod";
 import { PostComposer } from "@/components/scheduling/post-composer";
 import { ScheduledPostItem, type ScheduledPost } from "@/components/scheduling/scheduled-post-item";
@@ -29,17 +30,25 @@ const postSchema = z.object({
   scheduledAt: z.date().optional(),
 });
 
-const initialScheduledPosts: ScheduledPost[] = [
-  { id: "sp1", accountId: "ig1", accountName: "My Awesome Biz IG", platform: "Instagram", caption: "Exciting news coming soon! #StayTuned #BigAnnouncement", scheduledAt: new Date(Date.now() + 3 * 60 * 60 * 1000), status: "scheduled", mediaUrl: "https://placehold.co/600x400.png", mediaType: "image", dataAiHint: "announcement graphic" },
-  { id: "sp2", accountId: "fb1", accountName: "My Startup Page FB", platform: "Facebook", caption: "Check out our latest blog post on scaling your business. Link in bio!", scheduledAt: new Date(Date.now() + 24 * 60 * 60 * 1000), status: "scheduled", dataAiHint: "blog graphic" },
-  { id: "sp3", accountId: "ig1", accountName: "My Awesome Biz IG", platform: "Instagram", caption: "Throwback to our first product launch! #TBT", scheduledAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), status: "posted", mediaUrl: "https://placehold.co/600x400.png", mediaType: "image", dataAiHint: "product launch" },
-  { id: "sp4", accountId: "ig1", accountName: "My Awesome Biz IG", platform: "Instagram", caption: "This is a draft post.", scheduledAt: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000), status: "draft", dataAiHint: "content placeholder" },
-];
+// Moved initialScheduledPosts definition inside useEffect
+// const initialScheduledPosts: ScheduledPost[] = [ ... ];
 
 export default function SchedulingPage() {
-  const [scheduledPosts, setScheduledPosts] = useState<ScheduledPost[]>(initialScheduledPosts);
+  const [scheduledPosts, setScheduledPosts] = useState<ScheduledPost[]>([]); // Initialize with empty array
   const [isComposerOpen, setIsComposerOpen] = useState(true); // Default to open for new page
   const { toast } = useToast();
+
+  useEffect(() => {
+    // Define and set initial posts on the client side
+    const initialPosts: ScheduledPost[] = [
+      { id: "sp1", accountId: "ig1", accountName: "My Awesome Biz IG", platform: "Instagram", caption: "Exciting news coming soon! #StayTuned #BigAnnouncement", scheduledAt: new Date(Date.now() + 3 * 60 * 60 * 1000), status: "scheduled", mediaUrl: "https://placehold.co/600x400.png", mediaType: "image", dataAiHint: "announcement graphic" },
+      { id: "sp2", accountId: "fb1", accountName: "My Startup Page FB", platform: "Facebook", caption: "Check out our latest blog post on scaling your business. Link in bio!", scheduledAt: new Date(Date.now() + 24 * 60 * 60 * 1000), status: "scheduled", dataAiHint: "blog graphic" },
+      { id: "sp3", accountId: "ig1", accountName: "My Awesome Biz IG", platform: "Instagram", caption: "Throwback to our first product launch! #TBT", scheduledAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), status: "posted", mediaUrl: "https://placehold.co/600x400.png", mediaType: "image", dataAiHint: "product launch" },
+      { id: "sp4", accountId: "ig1", accountName: "My Awesome Biz IG", platform: "Instagram", caption: "This is a draft post.", scheduledAt: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000), status: "draft", dataAiHint: "content placeholder" },
+    ];
+    setScheduledPosts(initialPosts);
+  }, []); // Empty dependency array ensures this runs once on mount
+
 
   const handlePostScheduled = (data: z.infer<typeof postSchema>) => {
     const account = demoAccounts.find(acc => acc.id === data.accountId);
