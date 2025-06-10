@@ -52,14 +52,9 @@ export function SignupForm() {
     await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate API call
     setIsLoading(false);
 
-    // Simulate successful signup for a specific email
-    if (values.email === "test@example.com") {
-      toast({ title: "Account created!", description: "Welcome to RepliGo. You are now signed up." });
-      router.push('/dashboard'); // Redirect to dashboard
-    } else {
-      // Simulate failure for other emails
-      toast({ title: "Signup Failed", description: "Could not create an account. Please try a different email or try again later. (Hint: test@example.com for success)", variant: "destructive" });
-    }
+    // Simulate successful signup for any email in the demo
+    toast({ title: "Account created!", description: "Welcome to RepliGo. You are now signed up." });
+    router.push('/dashboard'); // Redirect to dashboard
   }
 
   return (
