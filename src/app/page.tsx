@@ -51,7 +51,14 @@ export default function LandingPage() {
       </div>
       
       <footer className="absolute bottom-0 left-0 right-0 p-6 text-center text-xs text-muted-foreground">
-        {currentYear ? `© ${currentYear} RepliGo. All rights reserved.` : 'Loading...'}
+        <div className="mb-1">
+            {currentYear ? `© ${currentYear} RepliGo. All rights reserved.` : 'Loading...'}
+        </div>
+        <div>
+            <Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+            <span className="mx-2">|</span>
+            <Link href="/refund-policy" className="hover:text-primary transition-colors">Refund Policy</Link>
+        </div>
       </footer>
     </div>
   );
