@@ -48,7 +48,7 @@ export function LoginForm() {
 
     // Simulate successful login
     if (values.email === "user@example.com" && values.password === "password123") {
-      toast({ title: "Login Successful!", description: "Welcome back to RepliGo." });
+      toast({ title: "Login Successful!", description: "Welcome back to ReplyDo." });
       router.push('/dashboard'); // Redirect to dashboard
     } else {
       toast({ title: "Login Failed", description: "Invalid email or password. (Hint: user@example.com / password123)", variant: "destructive" });

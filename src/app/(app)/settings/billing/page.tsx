@@ -79,7 +79,7 @@ export default function BillingSettingsPage() {
       <Card className="shadow-xl">
         <CardHeader>
           <CardTitle className="font-headline text-2xl">Subscription Plan</CardTitle>
-          <CardDescription>Manage your RepliGo subscription and billing details.</CardDescription>
+          <CardDescription>Manage your ReplyDo subscription and billing details.</CardDescription>
         </CardHeader>
         <CardContent className="grid gap-6 md:grid-cols-2 lg:grid-cols-4"> {/* Adjusted grid for 4 cards */}
           {plans.map(plan => (

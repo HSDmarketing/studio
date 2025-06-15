@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'RepliGo - Social Media Automation',
-  description: 'Automate your social media with RepliGo.',
+  title: 'ReplyDo - Social Media Automation',
+  description: 'Automate your social media with ReplyDo.',
 };
 
 export default function RootLayout({

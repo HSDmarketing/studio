@@ -38,8 +38,8 @@ export function Logo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
         <span className="text-destructive">e</span>
         <span className="text-chart-3">p</span>
         <span className="text-accent">l</span>
-        <span className="text-primary">i</span>
-        <span className="text-destructive">G</span>
+        <span className="text-primary">y</span>
+        <span className="text-destructive">D</span>
         <span className="text-chart-3">o</span>
       </div>
     </div>

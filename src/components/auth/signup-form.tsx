@@ -53,7 +53,7 @@ export function SignupForm() {
     setIsLoading(false);
 
     // Simulate successful signup for any email in the demo
-    toast({ title: "Account created!", description: "Welcome to RepliGo. You are now signed up." });
+    toast({ title: "Account created!", description: "Welcome to ReplyDo. You are now signed up." });
     router.push('/dashboard'); // Redirect to dashboard
   }
 

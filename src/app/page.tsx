@@ -27,7 +27,7 @@ export default function LandingPage() {
 
         <main className="space-y-8">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-headline text-foreground !leading-tight">
-            Automate Your Social Media <span className="text-primary">Effortlessly</span> with RepliGo
+            Automate Your Social Media <span className="text-primary">Effortlessly</span> with ReplyDo
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto">
             The smart way to manage comments, messages, and posts. Save time, engage your audience, and grow your brand.
@@ -52,7 +52,7 @@ export default function LandingPage() {
       
       <footer className="absolute bottom-0 left-0 right-0 p-6 text-center text-xs text-muted-foreground">
         <div className="mb-1">
-            {currentYear ? `© ${currentYear} RepliGo. All rights reserved.` : 'Loading...'}
+            {currentYear ? `© ${currentYear} ReplyDo. All rights reserved.` : 'Loading...'}
         </div>
         <div>
             <Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>

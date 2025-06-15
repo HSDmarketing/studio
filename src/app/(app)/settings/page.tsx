@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Settings - RepliGo',
+  title: 'Settings - ReplyDo',
 };
 
 export default function SettingsPage() {

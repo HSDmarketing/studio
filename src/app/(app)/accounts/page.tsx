@@ -143,7 +143,7 @@ export default function AccountsPage() {
             <CardTitle className="text-xl font-headline">Understanding Account Statuses</CardTitle>
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
-            <p><strong className="text-green-600">Connected:</strong> The account is active and RepliGo can access it.</p>
+            <p><strong className="text-green-600">Connected:</strong> The account is active and ReplyDo can access it.</p>
             <p><strong className="text-yellow-600">Needs Re-authentication:</strong> Permissions might have expired. Reconnect the account.</p>
             <p><strong className="text-red-600">Disconnected:</strong> The account is no longer linked. You'll need to add it again or reconnect.</p>
         </CardContent>

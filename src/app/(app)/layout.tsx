@@ -13,7 +13,7 @@ function generateTitleFromPathname(pathname: string): string {
     // Capitalize first letter and replace dashes with spaces
     return lastSegment.charAt(0).toUpperCase() + lastSegment.slice(1).replace(/-/g, ' ');
   }
-  return "RepliGo";
+  return "ReplyDo";
 }
 
 

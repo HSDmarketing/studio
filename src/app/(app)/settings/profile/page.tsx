@@ -38,7 +38,7 @@ export default function ProfileSettingsPage() {
     defaultValues: {
       fullName: "Demo User",
       email: "user@example.com",
-      companyName: "RepliGo Inc.",
+      companyName: "ReplyDo Inc.",
     },
   });
 

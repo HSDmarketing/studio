@@ -111,7 +111,7 @@ export function AccountCard({ account, onRemove, onReconnect }: AccountCardProps
             <AlertDialogHeader>
               <AlertDialogTitle>Are you sure?</AlertDialogTitle>
               <AlertDialogDescription>
-                This will disconnect the account <span className="font-semibold">{account.name} ({account.username})</span> from RepliGo.
+                This will disconnect the account <span className="font-semibold">{account.name} ({account.username})</span> from ReplyDo.
                 You will need to re-authenticate to use it again.
               </AlertDialogDescription>
             </AlertDialogHeader>

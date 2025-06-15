@@ -8,12 +8,12 @@ import Image from "next/image";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Dashboard - RepliGo',
+  title: 'Dashboard - ReplyDo',
 };
 
 const connectedAccounts = [
-  { name: "Instagram Biz", username: "@repligo_demo", img: "https://placehold.co/40x40.png?font=roboto", dataAiHint: "instagram logo" },
-  { name: "Facebook Page", username: "RepliGo Solutions", img: "https://placehold.co/40x40.png?font=roboto", dataAiHint: "facebook logo" },
+  { name: "Instagram Biz", username: "@replydo_demo", img: "https://placehold.co/40x40.png?font=roboto", dataAiHint: "instagram logo" },
+  { name: "Facebook Page", username: "ReplyDo Solutions", img: "https://placehold.co/40x40.png?font=roboto", dataAiHint: "facebook logo" },
 ];
 
 const recentActivities = [
