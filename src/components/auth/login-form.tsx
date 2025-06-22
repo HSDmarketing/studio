@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // Use for client-side navigation
 
 import { Button } from "@/components/ui/button";
 import {
@@ -27,7 +26,6 @@ const formSchema = z.object({
 });
 
 export function LoginForm() {
-  const router = useRouter();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -49,7 +47,7 @@ export function LoginForm() {
     // Simulate successful login
     if (values.email === "user@example.com" && values.password === "password123") {
       toast({ title: "Login Successful!", description: "Welcome back to ReplyDo." });
-      router.push('/dashboard'); // Redirect to dashboard
+      window.location.href = '/dashboard'; // Redirect to dashboard
     } else {
       toast({ title: "Login Failed", description: "Invalid email or password. (Hint: user@example.com / password123)", variant: "destructive" });
     }

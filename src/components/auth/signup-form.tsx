@@ -1,11 +1,9 @@
-
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // Use for client-side navigation
 
 import { Button } from "@/components/ui/button";
 import {
@@ -32,7 +30,6 @@ const formSchema = z.object({
 });
 
 export function SignupForm() {
-  const router = useRouter();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -54,7 +51,7 @@ export function SignupForm() {
 
     // Simulate successful signup for any email in the demo
     toast({ title: "Account created!", description: "Welcome to ReplyDo. You are now signed up." });
-    router.push('/dashboard'); // Redirect to dashboard
+    window.location.href = '/dashboard'; // Redirect to dashboard
   }
 
   return (
