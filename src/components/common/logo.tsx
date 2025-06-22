@@ -1,23 +1,27 @@
-
 import type { SVGProps } from 'react';
 
 const LogoIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg
+    <svg
     width="100"
     height="100"
-    viewBox="0 0 100 100"
-    fill="none"
+    viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    {/* Top-left: Red */}
-    <rect width="48" height="48" rx="5" fill="hsl(var(--destructive))"/>
-    {/* Top-right: Green */}
-    <rect x="52" width="48" height="48" rx="5" fill="hsl(var(--accent))"/>
-    {/* Bottom-left: Blue */}
-    <rect y="52" width="48" height="48" rx="5" fill="hsl(var(--primary))"/>
-    {/* Bottom-right: Yellow */}
-    <rect x="52" y="52" width="48" height="48" rx="5" fill="hsl(var(--chart-3))"/>
+    {/* Blue Chat Bubble */}
+    <path
+      d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+      fill="hsl(var(--primary))"
+    />
+    {/* Green Checkmark */}
+    <path
+      d="M9 11.5L11 13.5L15 9.5"
+      stroke="hsl(var(--accent))"
+      fill="none"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
