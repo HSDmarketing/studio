@@ -6,14 +6,18 @@ const LogoIcon = (props: SVGProps<SVGSVGElement>) => (
     width="100"
     height="100"
     viewBox="0 0 100 100"
-    fill="none" // Ensures rect fills are not overridden
+    fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    {...props} // className for sizing will be passed here
+    {...props}
   >
-    <rect width="48" height="48" rx="5" fill="hsl(var(--primary))"/> {/* Blue */}
-    <rect x="52" width="48" height="48" rx="5" fill="hsl(var(--destructive))"/> {/* Red */}
-    <rect y="52" width="48" height="48" rx="5" fill="hsl(var(--chart-3))"/> {/* Yellow */}
-    <rect x="52" y="52" width="48" height="48" rx="5" fill="hsl(var(--accent))"/> {/* Green */}
+    {/* Top-left: Red */}
+    <rect width="48" height="48" rx="5" fill="hsl(var(--destructive))"/>
+    {/* Top-right: Green */}
+    <rect x="52" width="48" height="48" rx="5" fill="hsl(var(--accent))"/>
+    {/* Bottom-left: Blue */}
+    <rect y="52" width="48" height="48" rx="5" fill="hsl(var(--primary))"/>
+    {/* Bottom-right: Yellow */}
+    <rect x="52" y="52" width="48" height="48" rx="5" fill="hsl(var(--chart-3))"/>
   </svg>
 );
 
