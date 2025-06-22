@@ -13,7 +13,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 217 89% 61%; /* Google Blue */
+    --primary: 232 95% 50%; /* New Blue #0827F5 */
     --primary-foreground: 0 0% 98%; /* White */
 
     --secondary: 210 40% 96.1%;
@@ -22,35 +22,35 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 151 83% 34%; /* Google Green */
+    --accent: 105 100% 36%; /* New Green #30B700 */
     --accent-foreground: 0 0% 98%; /* White */
 
-    --destructive: 5 69% 53%; /* Google Red */
+    --destructive: 322 100% 50%; /* New Red #fe019a */
     --destructive-foreground: 0 0% 98%; /* White */
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 217 89% 61%; /* Google Blue for focus rings */
+    --ring: 232 95% 50%; /* New Blue for focus rings */
 
     --radius: 0.5rem;
 
     --app-background: 0 0% 94.1%; /* Light Gray for overall app background */
 
-    --chart-1: 217 89% 61%; /* Google Blue */
-    --chart-2: 151 83% 34%; /* Google Green */
-    --chart-3: 43 90% 50%;  /* Google Yellow */
-    --chart-4: 5 69% 53%;   /* Google Red */
-    --chart-5: 217 89% 75%; /* Lighter Google Blue */
+    --chart-1: 232 95% 50%; /* New Blue */
+    --chart-2: 105 100% 36%; /* New Green */
+    --chart-3: 52 100% 50%;  /* New Yellow #FEDD00 */
+    --chart-4: 322 100% 50%;   /* New Red */
+    --chart-5: 232 95% 65%; /* Lighter New Blue */
 
     /* Sidebar specific theme (sidebar is dark in light app theme) */
     --sidebar-background: 222.2 84% 4.9%; /* Dark for sidebar */
     --sidebar-foreground: 210 40% 98%; /* Light text on dark sidebar */
-    --sidebar-primary: 217 89% 61%; /* Google Blue (matching app primary for consistency) */
+    --sidebar-primary: 232 95% 50%; /* New Blue */
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 217 89% 55%; /* Slightly darker/muted Google Blue for hover/active on dark sidebar */
+    --sidebar-accent: 232 95% 45%; /* Slightly darker New Blue for hover/active on dark sidebar */
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 210 40% 15%;
-    --sidebar-ring: 217 89% 61%; /* Google Blue */
+    --sidebar-ring: 232 95% 50%; /* New Blue */
   }
 
   .dark {
@@ -63,7 +63,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 217 89% 68%; /* Lighter Google Blue for dark mode */
+    --primary: 232 95% 65%; /* Lighter New Blue for dark mode */
     --primary-foreground: 0 0% 98%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -72,15 +72,15 @@
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 151 83% 42%; /* Lighter Google Green for dark mode */
+    --accent: 105 100% 46%; /* Lighter New Green for dark mode */
     --accent-foreground: 0 0% 98%;
 
-    --destructive: 5 69% 60%; /* Lighter Google Red for dark mode */
+    --destructive: 322 100% 65%; /* Lighter New Red for dark mode */
     --destructive-foreground: 0 0% 98%;
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 217 89% 68%; /* Lighter Google Blue for dark mode rings */
+    --ring: 232 95% 65%; /* Lighter New Blue for dark mode rings */
 
     /* Custom app background for dark mode */
     --app-background: 220 20% 10%; /* Dark Gray for overall app background in dark mode */
@@ -88,12 +88,12 @@
     /* Sidebar specific theme for dark mode (sidebar remains dark) */
     --sidebar-background: 222.2 84% 4.9%; /* Keeping sidebar dark */
     --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 217 89% 68%; /* Lighter Google Blue for active/hover items */
+    --sidebar-primary: 232 95% 65%; /* Lighter New Blue for active/hover items */
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 217 89% 60%;  /* Lighter Google Blue for hover/active on dark sidebar */
+    --sidebar-accent: 232 95% 60%;  /* Lighter New Blue for hover/active on dark sidebar */
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 210 40% 15%;
-    --sidebar-ring: 217 89% 68%; /* Lighter Google Blue */
+    --sidebar-ring: 232 95% 65%; /* Lighter New Blue */
   }
 }
 
